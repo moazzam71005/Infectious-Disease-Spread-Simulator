@@ -1,0 +1,172 @@
+body {
+    background-color: #1a1a1a;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+}
+
+.control-panel {
+    background-color: #2d2d2d;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+}
+
+.visualization-container {
+    height: 100vh;
+    background-color: #2d2d2d;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    position: relative;
+}
+
+#network-visualization {
+    width: 100%;
+    height: 100%;
+    background-color: #2d2d2d;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: #363636;
+}
+
+.card-title {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.form-label {
+    color: #e0e0e0;
+    font-weight: 500;
+}
+
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #4a4a4a;
+    background-color: #2d2d2d;
+    color: #ffffff;
+}
+
+.form-control:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+    background-color: #2d2d2d;
+    color: #ffffff;
+}
+
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #4a90e2;
+    border-color: #4a90e2;
+}
+
+.btn-primary:hover {
+    background-color: #357abd;
+    border-color: #357abd;
+}
+
+.btn-success {
+    background-color: #2ecc71;
+    border-color: #2ecc71;
+}
+
+.btn-success:hover {
+    background-color: #27ae60;
+    border-color: #27ae60;
+}
+
+.btn-warning {
+    background-color: #f1c40f;
+    border-color: #f1c40f;
+    color: #2c3e50;
+}
+
+.btn-warning:hover {
+    background-color: #f39c12;
+    border-color: #f39c12;
+    color: #2c3e50;
+}
+
+#statistics {
+    font-size: 1.1em;
+}
+
+#statistics p {
+    margin-bottom: 0.5rem;
+    color: #e0e0e0;
+}
+
+#statistics span {
+    font-weight: 600;
+    color: #4a90e2;
+}
+
+/* Node colors for the network visualization */
+.node-susceptible {
+    fill: #3498db;
+}
+
+.node-infected {
+    fill: #e74c3c;
+}
+
+.node-recovered {
+    fill: #2ecc71;
+}
+
+/* Link styling */
+.link {
+    stroke: #4a4a4a;
+    stroke-opacity: 0.6;
+}
+
+/* Zoom controls */
+.zoom-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #363636;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.zoom-controls button {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4a4a4a;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.zoom-controls button:hover {
+    background-color: #5a5a5a;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .control-panel {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .visualization-container {
+        height: 70vh;
+    }
+}
