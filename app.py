@@ -12,8 +12,16 @@ simulation_state = None
 network = None
 
 def generate_network(num_nodes, edge_probability):
-    """Generate a random network using the Erdős-Rényi model."""
-    G = nx.erdos_renyi_graph(num_nodes, edge_probability)
+    """Generate a network using the Watts-Strogatz model."""
+    # For Watts-Strogatz, we need to specify k (average degree) and p (rewiring probability)
+    # We'll calculate k based on the desired edge probability
+    k = int(num_nodes * edge_probability)
+    # Ensure k is even and at least 2
+    k = max(2, k - (k % 2))
+    # Use a moderate rewiring probability
+    p = 0.1
+    
+    G = nx.watts_strogatz_graph(num_nodes, k, p)
     return G
 
 def calculate_network_metrics(G):
@@ -136,8 +144,8 @@ def initialize():
             raise ValueError("Number of nodes must be between 100 and 5000")
         if initial_infected < 1 or initial_infected > 50:
             raise ValueError("Initial infected nodes must be between 1 and 50")
-        if edge_probability < 0.001 or edge_probability > 0.01:
-            raise ValueError("Edge probability must be between 0.001 and 0.01")
+        if edge_probability < 0.001 or edge_probability > 0.1:
+            raise ValueError("Edge probability must be between 0.001 and 0.1")
         
         state = initialize_simulation(num_nodes, initial_infected, edge_probability)
         
